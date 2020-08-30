@@ -1,0 +1,13 @@
+{
+  "cfgName": "dev",
+  "prod": false,
+  "baseUrl": "",
+  "paths": {
+  },
+  "auth": {
+  },
+  "app": {
+    "port": 3000,
+    "ssrOrigin": "http://localhost:3000"
+  },
+}
