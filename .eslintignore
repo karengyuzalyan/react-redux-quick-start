@@ -1,0 +1,5 @@
+src/@html-scripts/compiled
+tests
+__tests__
+__snapshots__
+src/@examples
