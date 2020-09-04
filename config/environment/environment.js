@@ -15,5 +15,5 @@ export const DIST_STATIC_SUBPATH = 'joffer';
 export const BABEL_POLYFILL_ENTRY = path.resolve(ROOT_DIR, './config/environment/runtime-polyfill');
 export const APP_SRC_DIR = path.resolve(ROOT_DIR, './src');
 export const APP_COMMON_SRC_DIR = path.resolve(APP_SRC_DIR, './@common');
-export const APP_COMMON_SRC_TEMPLATE = path.resolve(APP_COMMON_SRC_DIR, './index.html');
-export const APP_COMMON_SRC_ENTRY = path.resolve(APP_COMMON_SRC_DIR, './index.js');
+export const APP_COMMON_SRC_TEMPLATE = path.resolve(APP_SRC_DIR, './index.html');
+export const APP_COMMON_SRC_ENTRY = path.resolve(APP_SRC_DIR, './index.js');

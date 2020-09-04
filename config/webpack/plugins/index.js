@@ -6,9 +6,6 @@ export { default as htmlPlugin } from './html.plugin';
 export { default as extractCssPlugin } from './extract-css.plugin';
 export { default as cssoWebpackPlugin } from './csso-webpack.plugin';
 export { default as htmlInlineSrcPlugin } from './html-inline-src.plugin';
-export {
-  default as limitServerChunksCount,
-} from './limit-server-chunks-count.plugin';
 export { default as statsWriterPlugin } from './stats-writer.plugin';
 export { default as definePlugin } from './define.plugin';
 export { default as faviconsPlugin } from './favicons.plugin';
