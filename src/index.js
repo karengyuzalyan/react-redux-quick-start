@@ -1,15 +1,15 @@
+import ReactDOM from 'react-dom';
+
 import React from 'react';
 import get from 'lodash/get';
 
-import { createAppStore } from 'src/client/store/store';
-import { createClientHistory } from 'src/common/history';
+import { createAppStore } from '@store/store';
+import { createClientHistory } from './history';
 
 import Root from './root.component';
 
 export const createApp = ({ store }) => {
-  const app = (
-    <Root store={store} />
-  );
+  const app = <Root store={store} />;
 
   return app;
 };
@@ -23,12 +23,16 @@ export const startApplication = async () => {
     initialState: preloadedState,
   });
 
-  const app = createApp({ store: appStore });
-  
+  const app = createApp({
+    store: appStore,
+    options: {
+      path: window.location.pathname,
+    },
+  });
+
   ReactDOM.render(app, document.getElementById('root'));
 };
 
 if (typeof window !== 'undefined') {
   startApplication();
 }
-

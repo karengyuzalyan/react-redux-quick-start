@@ -1,15 +1,16 @@
-import React from 'react';
+import HomePage from '@pages/home';
+import NotFound from '@pages/not-found';
 
-import Root from './components/pages/root';
-import BasePage from './components/app';
-
-export const routesConfig = [
+export const routes = [
   {
-    key: 'home-page',
-    path: '/home-page',
-    isStatic: false,
-    component: BasePage,
+    key: 'home',
+    path: '/',
+    component: HomePage,
+    exact: true,
+  },
+  {
+    key: 'not-found',
+    path: '*',
+    component: NotFound,
   },
 ];
-
-export const Routes = React.createElement(Root, { routes: routesConfig });

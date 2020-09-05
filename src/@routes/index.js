@@ -1,38 +1,17 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { routes } from './routes';
 
-const PageRoutes = ({ routes, additionalProps }) => {
+const Routes = () => {
   return (
-    <Switch>
-      {routes.map(route => (
-        <Route
-          key={route.key}
-          path={route.path}
-          render={props =>
-            React.createElement(route.component, {
-              ...props,
-              additionalProps,
-            })
-          }
-        />
-      ))}
-    </Switch>
+    <BrowserRouter>
+      <Switch>
+        {routes.map(route => (
+          <Route {...route} />
+        ))}
+      </Switch>
+    </BrowserRouter>
   );
 };
 
-PageRoutes.propTypes = {
-  routes: PropTypes.arrayOf(
-    PropTypes.shape({
-      key: PropTypes.string,
-      path: PropTypes.string,
-      isStatic: PropTypes.bool,
-      component: PropTypes.element,
-    }),
-  ).isRequired,
-  additionalProps: PropTypes.shape({
-    onPageRendered: PropTypes.func,
-  }),
-};
-
-export default PageRoutes;
+export default Routes;
