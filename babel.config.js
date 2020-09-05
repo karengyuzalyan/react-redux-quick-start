@@ -97,8 +97,7 @@ module.exports = {
   },
   overrides: [
     {
-      // do not apply transformation to configuration directory.
-      // compatibility with modules: false
+      exclude: /(node_modules|bower_components)/,
       test: path.resolve(__dirname, './config'),
       presets: ['@babel/preset-env'],
     },

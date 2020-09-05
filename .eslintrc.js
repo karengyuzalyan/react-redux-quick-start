@@ -87,7 +87,7 @@ module.exports = {
         ],
       },
       webpack: {
-        config: path.resolve(__dirname, 'config/webpack/webpack.config.babel.js'),
+        config: path.resolve(__dirname, 'config/webpack/webpack.config.js'),
       }
     }
   },
