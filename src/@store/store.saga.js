@@ -5,17 +5,12 @@
 import { all, fork, spawn } from 'redux-saga/effects';
 import map from 'lodash/fp/map';
 
-// import { initAppInfo } from '@common/store/app-info/app-info.saga';
 export const preloadDataSagas = []
-//   initAppInfo,
 
-// // import watch sagas
 export const watchSagas = [];
 
 export const serverWatchSagas = [];
 
-// // import server sagas
-// export const serverSagas = [initDevice, initLanguageSSR];
 export const serverSagas = [];
 
 // export function* runClientInitializingSideEffects() {
@@ -47,15 +42,5 @@ export function* runStoreDependentSagas(store) {
 export function* rootSaga() {
   const sagas = [];
 
-  // if (SSR) {
-  //   sagas.push(runServerSagas);
-  //   sagas.push(runWatchers);
-  //   sagas.push(fetchAppData);
-  // } else {
-  //   sagas.push(fetchAccountNavigation);
-  // }
-
-  // execute all root tasks in parallel.
-  // Note: avoid yielding tasks one by one
   yield all(map(fork, sagas));
 }
