@@ -10,7 +10,7 @@ export const CONFIG_DIR = path.resolve(ROOT_DIR, './config');
 export const ENV_CONFIG_DIR = path.resolve(ROOT_DIR, './env_config');
 export const DIST_DIR = path.resolve(ROOT_DIR, './dist');
 export const DIST_SRC_DIR = path.resolve(DIST_DIR, './src');
-export const DIST_STATIC_SUBPATH = 'joffer';
+export const DIST_STATIC_SUBPATH = 'static';
 
 export const BABEL_POLYFILL_ENTRY = path.resolve(ROOT_DIR, './config/environment/runtime-polyfill');
 export const APP_SRC_DIR = path.resolve(ROOT_DIR, './src');

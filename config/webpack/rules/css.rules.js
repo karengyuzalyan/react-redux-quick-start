@@ -16,12 +16,3 @@ export const cssClientRules = {
     sassLoader,
   ],
 };
-
-export const cssServerRules = {
-  test: new RegExp(PATTERN),
-  use: [
-    cssLoader,
-    postCssLoader,
-    sassLoader,
-  ],
-};
