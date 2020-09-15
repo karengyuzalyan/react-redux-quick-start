@@ -14,7 +14,7 @@ export const createApp = ({ store }) => {
   return app;
 };
 
-export const startApplication = async () => {
+export const startApp = async () => {
   const preloadedState = get(window, '__PRELOADED_STATE__', {});
   const history = createClientHistory();
 
@@ -34,5 +34,5 @@ export const startApplication = async () => {
 };
 
 if (typeof window !== 'undefined') {
-  startApplication();
+  startApp();
 }

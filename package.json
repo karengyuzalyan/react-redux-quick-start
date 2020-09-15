@@ -1,19 +1,14 @@
 {
   "private": true,
-  "name": "JOffer",
+  "name": "react_redux_quick_start",
   "version": "0.1.1",
   "keywords": [],
   "author": "Karen Gyuzalyan",
   "license": "MIT",
   "main": "index.js",
-  "description": "JOffer is a platform that allows you to recruite employees and help people to find job!",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:all": "cross-env-shell NODE_ENV=development npm-run-all -p build:app",
     "start:dev": "webpack-dev-server --config config/webpack/webpack.config.js",
-    "build:client": "webpack --config config/webpack/webpack.config.js",
-    "build:client:dev": "cross-env-shell NODE_ENV=development npm-run-all build:client",
-    "build:client:prod": "cross-env-shell NODE_ENV=production npm-run-all build:client",
     "build:app": "cross-env-shell NODE_ENV=development webpack --config config/webpack/webpack.config.js",
     "lint": "npx eslint ./src",
     "lint:fix": "npx eslint ./src --fix"
