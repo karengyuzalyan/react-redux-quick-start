@@ -4,14 +4,23 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { END } from 'redux-saga';
 import rootReducer from './store.reducer';
+import loggerMiddleware from './middleware/logger.middleware';
 import { initializeSagaMiddleware } from './middleware/saga.middleware';
-import { rootSaga, runWatchers } from './store.saga';
+import { rootSaga } from './store.saga';
+import { createReactRouterHistoryMiddleware } from './middleware/history.middleware';
 
 const isBrowser = typeof window === 'object';
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 const hasDevTools = isBrowser && devTools;
 // const isDevBrowser = !PRODUCTION && isBrowser;
 const isDevBrowser = isBrowser;
+
+const composeEnhancer =
+  typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+        // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+      })
+    : compose;
 
 const preloadedState = window.__PRELOADED_STATE__;
 // @todo: add only development mode
@@ -23,10 +32,8 @@ const devToolsState =
    */
   window.__REDUX_DEVTOOLS_EXTENSION__ &&
   window.__REDUX_DEVTOOLS_EXTENSION__();
-
-const initialState = preloadedState || devToolsState;
-
-const composeEnhancers =  compose;
+const emptyFunc = () => ({});
+const initialState = preloadedState || devToolsState || {};
 
 /**
  *
@@ -42,12 +49,14 @@ export const createAppStore = async options => {
     history,
   });
 
-  const storeMiddlewareEnhancer = applyMiddleware(sagaMiddleware);
-
-  const store = createStore(
-    rootReducer,
-    compose(initialState, composeEnhancers(storeMiddlewareEnhancer)),
+  const storeMiddlewareEnhancer = applyMiddleware(
+    loggerMiddleware,
+    sagaMiddleware,
+    createReactRouterHistoryMiddleware(history),
   );
+  const enhancer = composeEnhancer(storeMiddlewareEnhancer);
+
+  const store = createStore(rootReducer, initialState, enhancer);
 
   // temporary debug
   if (isDevBrowser) {

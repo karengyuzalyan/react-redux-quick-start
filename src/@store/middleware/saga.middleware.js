@@ -4,9 +4,10 @@
 
 import createSagaMiddleWare from 'redux-saga';
 
-export const initializeSagaMiddleware = ({ history }) =>
+export const initializeSagaMiddleware = ({ services, history }) =>
   createSagaMiddleWare({
     context: {
+      services,
       history,
     },
   });
