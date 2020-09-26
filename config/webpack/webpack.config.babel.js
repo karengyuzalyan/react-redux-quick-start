@@ -22,6 +22,7 @@ import {
   WEBPACK_MODE_DEV,
   DIST_STATIC_SUBPATH,
   APP_SRC_DIR,
+  PUBLIC_DIR,
 } from '../environment';
 
 const CHUNKS_NAME_DELIMITER = '-';
@@ -39,8 +40,18 @@ module.exports = {
     filename: `${DIST_STATIC_SUBPATH}/js/[name].[hash].js`,
     chunkFilename: `${DIST_STATIC_SUBPATH}/js/chunks/[name].[contenthash].js`,
   },
+  // devServer: {
+  //   historyApiFallback: true,
+  //   contentBase: './dist',
+  // },
   devServer: {
-    historyApiFallback: true,
+    index: 'index.html',
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    hot: true, //Hot module replacement
+    port: 8080,
+    writeToDisk: true,
+    open: 'chrome', //open in chrome
   },
   resolve: {
     alias: {
@@ -50,6 +61,7 @@ module.exports = {
       '@routes': path.resolve(APP_SRC_DIR, './@routes'),
       '@utils': path.resolve(APP_SRC_DIR, './@utils'),
       '@pages': path.resolve(APP_SRC_DIR, './@pages'),
+      public: path.resolve(__dirname, PUBLIC_DIR),
       'lodash-es': 'lodash',
     },
   },
@@ -60,11 +72,9 @@ module.exports = {
       imageRules(DIST_STATIC_SUBPATH),
       propertiesRules,
       htmlScriptsRule(),
-      propertiesRules,
     ],
   },
   plugins: [
-    cleanPlugin(),
     getCircularDependenciesPlugin(),
     extractCssPlugin(),
     cssoWebpackPlugin(),
