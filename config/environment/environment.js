@@ -7,10 +7,11 @@ export const WEBPACK_MODE = DEV ? WEBPACK_MODE_DEV : WEBPACK_MODE_PROD;
 
 export const ROOT_DIR = process.cwd();
 export const CONFIG_DIR = path.resolve(ROOT_DIR, './config');
+export const PUBLIC_DIR = path.resolve(ROOT_DIR, './public');
 export const ENV_CONFIG_DIR = path.resolve(ROOT_DIR, './env_config');
 export const DIST_DIR = path.resolve(ROOT_DIR, './dist');
 export const DIST_SRC_DIR = path.resolve(DIST_DIR, './src');
-export const DIST_STATIC_SUBPATH = 'static';
+export const DIST_STATIC_SUBPATH = 'app';
 
 export const BABEL_POLYFILL_ENTRY = path.resolve(ROOT_DIR, './config/environment/runtime-polyfill');
 export const APP_SRC_DIR = path.resolve(ROOT_DIR, './src');
