@@ -1,12 +1,11 @@
 {
   "private": true,
-  "name": "JOffer",
+  "name": "react-redux-quick-start",
   "version": "0.1.1",
   "keywords": [],
   "author": "Karen Gyuzalyan",
   "license": "MIT",
   "main": "index.js",
-  "description": "JOffer is a platform that allows you to recruite employees and help people to find job!",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "npm run build && npm run start:dev",

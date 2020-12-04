@@ -1,6 +1,6 @@
 /*
-* Logger middleware
-* */
+ * Logger middleware
+ * */
 
 const loggerMiddleware = () => next => action => {
   // TODO: define prod/dev ENV based variables to apply logger only in development mode

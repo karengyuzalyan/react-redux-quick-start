@@ -1,6 +1,6 @@
 /*
-* History middleware
-* */
+ * History middleware
+ * */
 
 import { routerMiddleware } from 'react-router-redux';
 

@@ -9,7 +9,7 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
-    'prettier/react'
+    'prettier/react',
   ],
   parserOptions: {},
   rules: {
@@ -24,8 +24,8 @@ module.exports = {
       'error',
       {
         functions: false,
-        classes: true
-      }
+        classes: true,
+      },
     ],
     'class-methods-use-this': 'warn',
     'jsx-a11y/click-events-have-key-events': 'off',
@@ -42,18 +42,18 @@ module.exports = {
       {
         components: ['Link'],
         specialLink: ['to', 'hrefLeft', 'hrefRight'],
-        aspects: ['noHref', 'invalidHref', 'preferButton']
-      }
+        aspects: ['noHref', 'invalidHref', 'preferButton'],
+      },
     ],
     'jsx-a11y/label-has-for': [
       'error',
       {
         components: ['label'],
         required: {
-          some: ['nesting', 'id']
+          some: ['nesting', 'id'],
         },
-        allowChildren: true
-      }
+        allowChildren: true,
+      },
     ],
     'jsx-a11y/no-noninteractive-tabindex': 'off',
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
@@ -77,18 +77,24 @@ module.exports = {
     'react/prop-types': 'warn',
     'react/destructuring-assignment': 'off',
     // TEMPORARY DISABLE
-    'import/no-cycle': 'warn'
+    'import/no-cycle': 'warn',
+  },
+  env: {
+    browser: true,
+    node: true,
+    jasmine: true,
   },
   settings: {
     'import/resolver': {
       node: {
-        moduleDirectory: [
-          path.resolve(__dirname, './src'),
-        ],
+        moduleDirectory: [path.resolve(__dirname, './src')],
       },
       webpack: {
-        config: path.resolve(__dirname, 'config/webpack/webpack.config.js'),
-      }
-    }
+        config: path.resolve(
+          __dirname,
+          'config/webpack/webpack.config.babel.js',
+        ),
+      },
+    },
   },
 };

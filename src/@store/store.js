@@ -10,8 +10,8 @@ import { rootSaga } from './store.saga';
 import { createReactRouterHistoryMiddleware } from './middleware/history.middleware';
 
 const isBrowser = typeof window === 'object';
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-const hasDevTools = isBrowser && devTools;
+// const devTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+// const hasDevTools = isBrowser && devTools;
 // const isDevBrowser = !PRODUCTION && isBrowser;
 const isDevBrowser = isBrowser;
 
@@ -32,7 +32,6 @@ const devToolsState =
    */
   window.__REDUX_DEVTOOLS_EXTENSION__ &&
   window.__REDUX_DEVTOOLS_EXTENSION__();
-const emptyFunc = () => ({});
 const initialState = preloadedState || devToolsState || {};
 
 /**
