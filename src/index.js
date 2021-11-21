@@ -7,6 +7,7 @@ import { createAppStore } from '@store/store';
 import { createClientHistory } from './history';
 
 import Root from './root.component';
+import './index.styles.scss'
 
 export const createApp = ({ store }) => {
   const app = <Root store={store} />;
